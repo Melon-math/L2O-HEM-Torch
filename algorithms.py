@@ -38,7 +38,7 @@ class ReinforceBaselineAlg():
         train_decode_type='stochastic',
         evaluate_decode_type='greedy',
         reward_type='solving_time',
-        baseline_type="no_baseline", # ['no_baseline', 'simple', 'net']
+        baseline_type="no_baseline", # ['no_baseline', 'simple', 'net']  # default baseline type is simple
         critic_beta=0.9,
         train_steps_per_epoch=1,
         lr_decay=False,
@@ -428,13 +428,6 @@ class HRLReinforceAlg(ReinforceBaselineAlg):
                 'neg_rewards': []
             }
         return stats
-
-    # def _update_highlevel_dataset(self, raw_results):
-    #     training_highlevel_dataset = [result[2] for result in raw_results]
-    #     for dict_data in training_highlevel_dataset:
-    #         self.training_highlevel_dataset['states'].extend(dict_data['state']) # list of array
-    #         self.training_highlevel_dataset['actions'].extend(dict_data['action']) # list of int 
-    #         self.training_highlevel_dataset['neg_rewards'].extend(dict_data['neg_reward']) # list of int
 
     def _update_highlevel_dataset(self, raw_results):
         # clear past data
