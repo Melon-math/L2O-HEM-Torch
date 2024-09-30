@@ -991,6 +991,7 @@ def main():
                                 args=(return_queue,test_instance_path,cur_f_list,pointer_net,cutsel_percent_policy,args.sel_cuts_percent,worker_device,'greedy',seed,mean_std,args.policy_type,args.scip_seed,seed),
                                 kwargs=test_env_kwargs
                             )
+                            # Why still need args.sel_cuts_percent? High Level: cutsel_percent_policy
                         else:
                             p = mp.Process(
                                 target=online_test,
